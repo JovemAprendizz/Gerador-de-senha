@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { View, Text, StyleSheet, FlatList, VirtualizedList} from "react-native";
+import { View, Text, StyleSheet, FlatList, VirtualizedList, Vibration} from "react-native";
 import {SafeAreaView} from 'react-native-safe-area-context'
 import {useIsFocused} from '@react-navigation/native'
 import  useStorage from '../../hooks/useStorage'
@@ -24,6 +24,7 @@ export function Passwords(){
     async function deletePassword(item) {
         const passwords = await removeItem("@pass", item)
         setlistpasswords(passwords);
+        Vibration.vibrate()
         alert('Senha removida!')
     }
     
